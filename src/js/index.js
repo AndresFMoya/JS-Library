@@ -34,7 +34,6 @@ function render() {
 }
 
 function addBook() {
-  console.log(document.getElementById('status').checked);
   library.push(
     new Book(
       Math.max(...library.map((book) => book.id)) + 1,
@@ -44,8 +43,8 @@ function addBook() {
       document.getElementById('status').checked,
     ),
   );
+  clearForm()
   render();
-  // TODO: Clear the form
 }
 
 function removeBook(id) {
@@ -56,9 +55,16 @@ function removeBook(id) {
 }
 
 function toggleStatus(id) {
-  let book = library.find((b) => b.id === id);
+  const book = library.find((b) => b.id === id);
   book.status = !book.status;
   render();
+}
+
+function clearForm() {
+  document.getElementById('title').value = "";
+  document.getElementById('author').value ="";
+  document.getElementById('pages').value="";
+  document.getElementById('status').checked = false;
 }
 
 render();
