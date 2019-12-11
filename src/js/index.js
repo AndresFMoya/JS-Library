@@ -24,17 +24,18 @@ function render() {
             <td>${book.title}</td>
             <td>${book.author}</td>
             <td>${book.pages}</td>
-            <td>${book.status ? 'Readed' : 'Not Readed'}</td>
+            <td>${book.status ? 'Read' : 'Not read'}</td>
+            <td><button onClick="removeBook(${book.id})">Remove</button></td>
         </tr>`;
   });
   document.getElementById('table-body').innerHTML = rows;
 }
 
-function addBookToLibrary() {
+function addBook() {
   console.log(document.getElementById('status').checked);
   library.push(
     new Book(
-      library.length + 1,
+      Math.max(...library.map((book) => book.id)) + 1,
       document.getElementById('title').value,
       document.getElementById('author').value,
       document.getElementById('pages').value,
@@ -43,6 +44,13 @@ function addBookToLibrary() {
   );
   render();
   // TODO: Clear the form
+}
+
+function removeBook(id) {
+  const book = library.find((b) => b.id === id);
+  const indexOnLibrary = library.indexOf(book);
+  library.splice(indexOnLibrary, 1);
+  render();
 }
 
 render();
