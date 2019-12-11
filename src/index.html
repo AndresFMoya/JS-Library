@@ -61,6 +61,14 @@
 
           <h2>Section title</h2>
           <div class="table-responsive">
+            <div class="add-book-form">
+              Title: <input type="text" name="title" id="title" /><br />
+              Author: <input type="text" name="author" id="author" /><br />
+              Pages: <input type="text" name="pages" id="pages" /><br />
+              Status: <input type="checkbox" name="status" id="status" /><br />
+              <button onclick="addBookToLibrary()">Add Book</button>
+            </div>
+
             <table class="table table-striped table-sm">
               <thead>
                 <tr>
@@ -71,10 +79,7 @@
                   <th>Status</th>
                 </tr>
               </thead>
-              <button onclick="addBookToLibrary()">Add Book</button>
-              <tbody id="table-body">
-
-              </tbody>
+              <tbody id="table-body"></tbody>
             </table>
           </div>
         </main>
