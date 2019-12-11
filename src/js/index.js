@@ -25,12 +25,21 @@ function render() {
             <td>${book.author}</td>
             <td>${book.pages}</td>
             <td>${book.status ? 'Read' : 'Not read'}</td>
-            <td><button onClick="removeBook(${book.id})">Remove</button>
-            <button onClick="toggleStatus(${book.id})">Mark as Read</button></td>
+            <td>
+              <button onClick="removeBook(${book.id})">Remove</button>
+              <button onClick="toggleStatus(${book.id})">Mark as Read</button>
+            </td>
 
         </tr>`;
   });
   document.getElementById('table-body').innerHTML = rows;
+}
+
+function clearForm() {
+  document.getElementById('title').value = '';
+  document.getElementById('author').value = '';
+  document.getElementById('pages').value = '';
+  document.getElementById('status').checked = false;
 }
 
 function addBook() {
@@ -43,7 +52,7 @@ function addBook() {
       document.getElementById('status').checked,
     ),
   );
-  clearForm()
+  clearForm();
   render();
 }
 
@@ -58,13 +67,6 @@ function toggleStatus(id) {
   const book = library.find((b) => b.id === id);
   book.status = !book.status;
   render();
-}
-
-function clearForm() {
-  document.getElementById('title').value = "";
-  document.getElementById('author').value ="";
-  document.getElementById('pages').value="";
-  document.getElementById('status').checked = false;
 }
 
 render();

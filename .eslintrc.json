@@ -13,6 +13,7 @@
     "sourceType": "module"
   },
   "rules": {
-    "arrow-parens": "off"
+    "arrow-parens": "off",
+    "no-unused-vars": "warn"
   }
 }
