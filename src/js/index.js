@@ -25,7 +25,9 @@ function render() {
             <td>${book.author}</td>
             <td>${book.pages}</td>
             <td>${book.status ? 'Read' : 'Not read'}</td>
-            <td><button onClick="removeBook(${book.id})">Remove</button></td>
+            <td><button onClick="removeBook(${book.id})">Remove</button>
+            <button onClick="toggleStatus(${book.id})">Mark as Read</button></td>
+
         </tr>`;
   });
   document.getElementById('table-body').innerHTML = rows;
@@ -50,6 +52,12 @@ function removeBook(id) {
   const book = library.find((b) => b.id === id);
   const indexOnLibrary = library.indexOf(book);
   library.splice(indexOnLibrary, 1);
+  render();
+}
+
+function toggleStatus(id) {
+  let book = library.find((b) => b.id === id);
+  book.status = !book.status;
   render();
 }
 
