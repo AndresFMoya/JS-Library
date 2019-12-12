@@ -16,10 +16,25 @@
     padding: 20px;
     background-color: #fff;
 }
-.form-container input[type=text], .form-container input[type=password] {
+.form-container input[type=text] {
     width: 100%;
     padding: 10px;
     margin: 5px 0 22px 0;
     border: none;
     background: #eee;
+}
+
+.form-container .btn {
+    background-color: #8ebf42;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+}
+/* Style cancel button */
+.form-container .cancel {
+    background-color: #cc0000;
 }
