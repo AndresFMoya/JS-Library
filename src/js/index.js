@@ -27,7 +27,7 @@ function render() {
             <td>${book.status ? 'Read' : 'Not read'}</td>
             <td>
               <button onClick="removeBook(${book.id})">Remove</button>
-              <button onClick="toggleStatus(${book.id})">Mark as Read</button>
+              <button onClick="toggleStatus(${book.id})"> ${book.status ? 'Mark as not Read' : 'Mark as Read'}</button>
             </td>
 
         </tr>`;
@@ -40,6 +40,14 @@ function clearForm() {
   document.getElementById('author').value = '';
   document.getElementById('pages').value = '';
   document.getElementById('status').checked = false;
+}
+
+function openForm() {
+  document.getElementById('loginPopup').style.display = 'block';
+}
+
+function closeForm() {
+  document.getElementById('loginPopup').style.display = 'none';
 }
 
 function addBook() {
